@@ -1,18 +1,176 @@
-:root { color-scheme: dark; --bg:#0b1222; --fg:#edf6ff; --accent:#43d0ed; }
-* { box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body { margin:0; font:16px/1.65 Arial,sans-serif; background:var(--bg); color:var(--fg); }
-SPECTION | Portfólio com SDD • Atividade acadêmica • CEUNI - FAMETRO
-header { display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;
- padding:1rem 6%; border-bottom:1px solid #34445f; }
-a { color:var(--accent); }
-nav { display:flex; gap:1rem; flex-wrap:wrap; }
-main { width:min(1100px,88%); margin:auto; }
-section { padding:3rem 0; }
-.hero { min-height:40vh; display:grid; align-content:center; }
-h1 { font-size:clamp(2rem,5vw,3.6rem); line-height:1.1; }
-article { padding:1.1rem; margin:.7rem 0; border:1px solid #34445f;
- border-radius:12px; background:#14223a; }
-footer { padding:1rem 6%; text-align:center; }
-a:focus-visible { outline:3px solid #ffd166; outline-offset:3px; }
-@media (max-width:650px) { header { flex-direction:column; } section { padding:2rem 0; } }
+
+:root {
+    color-scheme: dark;
+    --bg: #0a0f1e;
+    --surface: #111a2e;
+    --surface-2: #16233c;
+    --border: #233152;
+    --fg: #edf6ff;
+    --muted: #9db2d0;
+    --accent: #43d0ed;
+    --accent-soft: rgba(67, 208, 237, .12);
+    --radius: 14px;
+    --shadow: 0 10px 30px rgba(2, 8, 20, .45);
+  }
+  
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  
+  body {
+    margin: 0;
+    font: 16px/1.7 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    color: var(--fg);
+    background:
+      radial-gradient(60rem 30rem at 80% -10%, rgba(67, 208, 237, .08), transparent 60%),
+      radial-gradient(50rem 28rem at -10% 30%, rgba(124, 92, 255, .07), transparent 60%),
+      var(--bg);
+    min-height: 100vh;
+  }
+  
+  ::selection { background: var(--accent); color: #06121f; }
+  
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: .9rem 6%;
+    background: rgba(10, 15, 30, .78);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  
+  header > a {
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    font-size: .95rem;
+    text-decoration: none;
+    color: var(--fg);
+  }
+  
+  nav { display: flex; gap: .35rem; flex-wrap: wrap; }
+  
+  nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: .92rem;
+    padding: .45rem .95rem;
+    border-radius: 999px;
+    transition: color .2s ease, background .2s ease;
+  }
+  
+  nav a:hover { color: var(--fg); background: var(--accent-soft); }
+  
+  a { color: var(--accent); }
+  
+  main { width: min(1100px, 88%); margin: auto; }
+  
+  section { padding: 3.5rem 0; scroll-margin-top: 5.5rem; }
+  
+  .hero {
+    min-height: 52vh;
+    display: grid;
+    align-content: center;
+    gap: .35rem;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .hero p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 1.1rem;
+  }
+  
+  .hero p:first-child {
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    font-size: .85rem;
+  }
+  
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.6rem);
+    line-height: 1.12;
+    letter-spacing: -.02em;
+    margin: .4rem 0 .8rem;
+    background: linear-gradient(120deg, #ffffff 30%, #9be7f5 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  h2 {
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    letter-spacing: -.01em;
+    margin: 0 0 1.1rem;
+    padding-left: .9rem;
+    border-left: 4px solid var(--accent);
+  }
+  
+  section > p { color: var(--muted); max-width: 65ch; }
+  
+  article {
+    padding: 1.4rem 1.5rem;
+    margin: .9rem 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: linear-gradient(160deg, var(--surface-2), var(--surface));
+    box-shadow: var(--shadow);
+    transition: transform .25s ease, border-color .25s ease;
+  }
+  
+  article:hover { transform: translateY(-4px); border-color: rgba(67, 208, 237, .5); }
+  
+  article h3 { margin: 0 0 .35rem; letter-spacing: -.01em; }
+  article p { margin: 0; color: var(--muted); }
+  
+  #contato a {
+    display: inline-block;
+    margin-top: .4rem;
+    padding: .8rem 1.6rem;
+    border-radius: 999px;
+    border: 1px solid rgba(67, 208, 237, .55);
+    background: var(--accent-soft);
+    font-weight: 700;
+    text-decoration: none;
+    transition: background .2s ease, transform .2s ease;
+  }
+  
+  #contato a:hover { background: rgba(67, 208, 237, .22); transform: translateY(-2px); }
+  
+  footer {
+    padding: 1.4rem 6%;
+    text-align: center;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    font-size: .9rem;
+  }
+  
+  footer p { margin: 0; }
+  
+  a:focus-visible {
+    outline: 3px solid #ffd166;
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  
+  @media (max-width: 650px) {
+    header { flex-direction: column; align-items: flex-start; }
+    nav { width: 100%; }
+    section { padding: 2.4rem 0; }
+    h1 { font-size: clamp(1.7rem, 8vw, 2.2rem); }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    article, #contato a, nav a { transition: none; }
+    article:hover, #contato a:hover { transform: none; }
+  }
